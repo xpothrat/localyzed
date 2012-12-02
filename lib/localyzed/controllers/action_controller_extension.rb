@@ -22,7 +22,7 @@ class ActionController::Base
   # if !request.xhr then non ajax request then ensure the path is localized (/^(en|fr)\/.*/)
   def redirect_to_localized_path_if
     @translatable = true # used to display or hide the languages menu
-    if ( !request.xhr? && ( !request.path.match(/^\/(en|fr)/) || params[:locale] != I18n.locale.to_s) && request.method == 'GET')
+    if ( !request.xhr? && ( !request.path.match(/\/(en|fr)(\/|$)/) || params[:locale] != I18n.locale.to_s) && request.method == 'GET')
       flash.keep
       # rediredct 302 for root / 301 for other pages
       if request.path == '/'

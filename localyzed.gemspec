@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = Localyzed::VERSION
   s.authors     = ["Nicolas Arbogast"]
   s.email       = ["nicolas.arbogast@gmail.com"]
-  s.homepage    = "TODO"
+  s.homepage    = "https://github.com/NicoArbogast/localyzed.git"
   s.summary     = "Simple helper for routes internationalization."
   s.description = %|Includes ActionController helpers implementing unlocalized routes redirection 
                     + a rack_rewrite redirecting /en to /en/ for SEO +
