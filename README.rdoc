@@ -1,0 +1,9 @@
+= define config in app config
+
+app.config.localized
+
+= expects user_interface in app to respond_to
+
+signed_in? => boolean
+current => a user instance which responds to
+  -> language => locale (symbol)
