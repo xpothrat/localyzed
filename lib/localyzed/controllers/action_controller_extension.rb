@@ -27,7 +27,7 @@ class ActionController::Base
       # rediredct 302 for root / 301 for other pages
       if request.path == '/'
         params.delete(:action) # removes the action param from params so that it doesn't appear anymore in the redirected url ("?action=root")
-        redirect_to home_path(params.merge(:locale => I18n.locale.to_s))
+        redirect_to url_for(params.merge(:locale => I18n.locale.to_s))
       else
         redirect_to(url_for(params.merge(:locale => I18n.locale.to_s, :from_l => (params[:locale] if params[:locale]))), :status => :moved_permanently)
       end
