@@ -15,7 +15,7 @@ class ActionController::Base
       locale = I18n.locale = cl
       session[:locale] = locale
     else
-      set_gettext_locale
+      define_locale
     end
   end
 
@@ -32,5 +32,13 @@ class ActionController::Base
         redirect_to(url_for(params.merge(:locale => I18n.locale.to_s, :from_l => (params[:locale] if params[:locale]))), :status => :moved_permanently)
       end
     end
+  end
+
+  private
+
+  def define_locale
+    requested_locale = params[:locale] || session[:locale] || cookies[:locale] ||  request.env['HTTP_ACCEPT_LANGUAGE'] || I18n.default_locale
+    session[:locale] = locale
+    I18n.locale = locale
   end
 end
