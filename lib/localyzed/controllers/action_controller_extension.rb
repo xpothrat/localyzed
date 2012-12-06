@@ -26,7 +26,7 @@ class ActionController::Base
     if ( !request.xhr? && ( ( !request.path.match(/\/(en|fr)(\/|$)/) && Rails.env != 'test' ) || params[:locale] != I18n.locale.to_s) && request.method == 'GET')
       flash.keep
       redirect_to(url_for(params.merge(:locale => I18n.locale.to_s, :from_l => (params[:locale] if params[:locale]))), :status => :moved_permanently)
-  end
+    end
   end
 
   private
