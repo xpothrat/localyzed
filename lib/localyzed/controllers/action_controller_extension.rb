@@ -11,7 +11,7 @@ class ActionController::Base
 
   # sets the locale by checking user data then request param then session data then retrieving accept language data 
   def set_locale
-    if Localyzed.user_interface && Localyzed.user_interface.signed_in? and cl = Localyzed.user_interface.current.language and I18n.available_locales.include?(cl)
+    if user_signed_in? and cl = (current_user.respond_to?(:language) ? current_user.language : 'en') and I18n.available_locales.include?(cl)
       locale = I18n.locale = cl
       session[:locale] = locale
     else

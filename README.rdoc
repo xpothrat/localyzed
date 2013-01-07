@@ -1,9 +1,4 @@
-= define config in app config
-
-app.config.localized
-
-= expects user_interface in app to respond_to
-
-signed_in? => boolean
-current => a user instance which responds to
-  -> language => locale (symbol)
+NB: expects controllers and views to implement the following methods
+ -> user_signed_in?
+ -> current_user
+ 	-> responding to language
