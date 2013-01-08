@@ -38,6 +38,6 @@ class ActionController::Base
   end
   
   def simplified_locale(locale)
-    locale.gsub(/-.*$/,'')
+    locale.gsub(/(-|_).*$/,'')
   end
 end
