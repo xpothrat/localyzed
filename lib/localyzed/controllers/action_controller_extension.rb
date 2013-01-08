@@ -32,8 +32,12 @@ class ActionController::Base
   private
 
   def define_locale
-    requested_locale = params[:locale] || session[:locale] || cookies[:locale] ||  request.env['HTTP_ACCEPT_LANGUAGE'] || I18n.default_locale
+    requested_locale = simplified_locale(params[:locale] || session[:locale] || cookies[:locale] ||  request.env['HTTP_ACCEPT_LANGUAGE'] || I18n.default_locale)
     session[:locale] = requested_locale
     I18n.locale = requested_locale
+  end
+  
+  def simplified_locale(locale)
+    locale.gsub(/-.*$/,'')
   end
 end
