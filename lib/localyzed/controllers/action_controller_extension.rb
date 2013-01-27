@@ -1,13 +1,13 @@
-class ActionController::Base
+module Localyzed::LocalyzedController
+  def self.included base
+    base.send :before_filter, :set_locale
+    # redirects_to localized path if path not loaclized and request not ajax or api
+    base.send :before_filter, :redirect_to_localized_path_if
+  end
 
   def url_options
     {:locale => I18n.locale.to_s}.merge(super)
   end
-
-  before_filter :set_locale
-
-  # redirects_to localized path if path not loaclized and request not ajax or api
-  before_filter :redirect_to_localized_path_if
 
   # sets the locale by checking user data then request param then session data then retrieving accept language data 
   def set_locale

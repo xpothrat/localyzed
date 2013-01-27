@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    localyzed (0.0.2.4)
-      rack-rewrite (~> 1.2.1)
+    localyzed (0.0.2.5)
+      rack-rewrite (>= 1.2.1)
       rails (>= 3.2.8)
       rails-translate-routes
 
