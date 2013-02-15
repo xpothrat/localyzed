@@ -11,7 +11,8 @@ module Localyzed::LocalyzedController
 
   # sets the locale by checking user data then request param then session data then retrieving accept language data 
   def set_locale
-    if params[:locale].nil? and user_signed_in? and cl = (current_user.respond_to?(:language) ? current_user.language : 'en') and I18n.available_locales.include?(cl)
+    cl = ( ( respond_to?(:user_signed_in?) && current_user.try(:respond_to?,:language) ) ? current_user.language : 'en')
+    if params[:locale].nil? and user_signed_in? and cl and I18n.available_locales.include?(cl)
       locale = I18n.locale = cl
       session[:locale] = locale
     else
