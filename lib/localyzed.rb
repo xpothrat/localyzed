@@ -1,3 +1,4 @@
+require 'rails-i18n'
 module Localyzed
 end
 require 'localyzed/base'
