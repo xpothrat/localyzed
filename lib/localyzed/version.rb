@@ -1,3 +1,3 @@
 module Localyzed
-  VERSION = "0.0.3.9"
+  VERSION = "0.0.4"
 end

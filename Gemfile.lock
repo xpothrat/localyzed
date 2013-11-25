@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    localyzed (0.0.3.8)
+    localyzed (0.0.3.9)
       rack-rewrite (~> 1.2.1)
       rails (~> 3.2.12)
       rails-i18n (~> 3.0.0.pre)
