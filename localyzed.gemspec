@@ -18,11 +18,11 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", "~> 3.2.12"
+  s.add_dependency "rails", "4.0.0"
 
   s.add_dependency 'rack-rewrite', '~> 1.2.1'
   s.add_dependency "rails-translate-routes", '0.1.3'
-  s.add_dependency 'rails-i18n', '~> 3.0.0.pre'
+  s.add_dependency 'rails-i18n', '~> 4.0.0'
 
   s.add_development_dependency "mysql2"
 end
